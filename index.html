@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CivicPulse | Smarter Cities, Better Tomorrow</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <div class="logo-icon">⚡</div>
+            <span>Civic<span>Pulse</span></span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#report">Report Issue</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#how-it-works">How It Works</a>
+        </div>
+
+        <button class="nav-report-btn" onclick="openReportModal()">
+            + Report Issue
+        </button>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                🌍 Tech for a Better Tomorrow
+            </div>
+
+            <h1>
+                Turn Civic Problems<br>
+                Into <span>Smart Solutions.</span>
+            </h1>
+
+            <p>
+                CivicPulse helps citizens report local problems and enables
+                authorities to prioritize issues based on severity and public impact.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn" onclick="openReportModal()">
+                    Report an Issue →
+                </button>
+
+                <button class="secondary-btn" onclick="scrollToSection('dashboard')">
+                    Explore Dashboard
+                </button>
+
+            </div>
+
+            <div class="hero-stats">
+
+                <div>
+                    <strong id="heroReports">127</strong>
+                    <span>Issues Reported</span>
+                </div>
+
+                <div>
+                    <strong id="heroResolved">63</strong>
+                    <span>Issues Resolved</span>
+                </div>
+
+                <div>
+                    <strong>94%</strong>
+                    <span>Priority Accuracy</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO VISUAL -->
+
+        <div class="hero-visual">
+
+            <div class="city-card">
+
+                <div class="city-header">
+                    <div>
+                        <small>LIVE CIVIC OVERVIEW</small>
+                        <h3>City Health</h3>
+                    </div>
+
+                    <div class="live-dot">
+                        <span></span> LIVE
+                    </div>
+                </div>
+
+
+                <div class="health-score">
+
+                    <div class="score-circle">
+                        <strong>82</strong>
+                        <small>/100</small>
+                    </div>
+
+                    <div>
+                        <h4>Good</h4>
+                        <p>Overall civic health</p>
+                    </div>
+
+                </div>
+
+
+                <div class="mini-map">
+
+                    <div class="map-road road1"></div>
+                    <div class="map-road road2"></div>
+                    <div class="map-road road3"></div>
+
+                    <div class="map-marker marker-red">!</div>
+                    <div class="map-marker marker-orange">!</div>
+                    <div class="map-marker marker-green">✓</div>
+
+                </div>
+
+
+                <div class="issue-mini-list">
+
+                    <div>
+                        <span class="status-dot red"></span>
+                        <span>Pothole</span>
+                        <b>High</b>
+                    </div>
+
+                    <div>
+                        <span class="status-dot orange"></span>
+                        <span>Garbage</span>
+                        <b>Medium</b>
+                    </div>
+
+                    <div>
+                        <span class="status-dot green"></span>
+                        <span>Streetlight</span>
+                        <b>Resolved</b>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROBLEM ================= -->
+
+    <section class="problem-section">
+
+        <div class="section-heading">
+
+            <span class="section-label">THE PROBLEM</span>
+
+            <h2>
+                Small civic problems can become
+                <span>big problems.</span>
+            </h2>
+
+            <p>
+                From overflowing garbage to dangerous potholes,
+                everyday infrastructure problems affect safety,
+                mobility and quality of life.
+            </p>
+
+        </div>
+
+
+        <div class="problem-grid">
+
+            <div class="problem-card">
+                <div class="problem-icon">🗑️</div>
+                <h3>Garbage Overflow</h3>
+                <p>Unreported waste creates health and environmental risks.</p>
+            </div>
+
+            <div class="problem-card">
+                <div class="problem-icon">🚧</div>
+                <h3>Road Damage</h3>
+                <p>Potholes and damaged roads create safety hazards.</p>
+            </div>
+
+            <div class="problem-card">
+                <div class="problem-icon">💡</div>
+                <h3>Broken Infrastructure</h3>
+                <p>Streetlights and public infrastructure often remain unnoticed.</p>
+            </div>
+
+            <div class="problem-card">
+                <div class="problem-icon">🚰</div>
+                <h3>Water Leakage</h3>
+                <p>Small leaks can waste large amounts of valuable water.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= REPORT SECTION ================= -->
+
+    <section class="report-section" id="report">
+
+        <div class="report-content">
+
+            <div>
+
+                <span class="section-label">CITIZEN ACTION</span>
+
+                <h2>
+                    See a problem?
+                    <span>Report it.</span>
+                </h2>
+
+                <p>
+                    Report civic issues in seconds. CivicPulse automatically
+                    evaluates the urgency and helps prioritize the problem.
+                </p>
+
+                <button class="primary-btn" onclick="openReportModal()">
+                    Report an Issue →
+                </button>
+
+            </div>
+
+
+            <div class="report-preview">
+
+                <div class="preview-top">
+                    <span>NEW REPORT</span>
+                    <span class="preview-status">● READY</span>
+                </div>
+
+                <div class="preview-row">
+                    <span>📍 Location</span>
+                    <strong>Pune, Maharashtra</strong>
+                </div>
+
+                <div class="preview-row">
+                    <span>🏷️ Category</span>
+                    <strong>Pothole</strong>
+                </div>
+
+                <div class="preview-row">
+                    <span>🚨 Severity</span>
+                    <strong class="high-text">High</strong>
+                </div>
+
+                <div class="priority-preview">
+
+                    <div>
+                        <small>SMART PRIORITY SCORE</small>
+                        <strong>87 / 100</strong>
+                    </div>
+
+                    <span class="priority-badge">HIGH PRIORITY</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <section class="dashboard-section" id="dashboard">
+
+        <div class="dashboard-header">
+
+            <div>
+                <span class="section-label">AUTHORITY DASHBOARD</span>
+                <h2>City Issue Overview</h2>
+            </div>
+
+            <button class="filter-btn">
+                This Month ▾
+            </button>
+
+        </div>
+
+
+        <!-- STAT CARDS -->
+
+        <div class="stat-grid">
+
+            <div class="stat-card">
+                <div class="stat-icon blue">📋</div>
+                <span>Total Reports</span>
+                <strong id="totalReports">127</strong>
+                <small>↑ 12% this month</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon red">🚨</div>
+                <span>Critical Issues</span>
+                <strong id="criticalIssues">8</strong>
+                <small>Needs immediate action</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orange">⚙️</div>
+                <span>In Progress</span>
+                <strong id="progressIssues">21</strong>
+                <small>Currently assigned</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">✓</div>
+                <span>Resolved</span>
+                <strong id="resolvedIssues">63</strong>
+                <small>49.6% resolution rate</small>
+            </div>
+
+        </div>
+
+
+        <!-- DASHBOARD CONTENT -->
+
+        <div class="dashboard-grid">
+
+            <!-- PRIORITY ISSUES -->
+
+            <div class="dashboard-card priority-card">
+
+                <div class="card-heading">
+
+                    <div>
+                        <h3>Priority Issues</h3>
+                        <p>Issues requiring attention</p>
+                    </div>
+
+                    <button onclick="showAllIssues()">View All</button>
+
+                </div>
+
+
+                <div class="issue-list" id="issueList">
+
+                    <div class="issue-item">
+
+                        <div class="issue-type-icon red-bg">🚧</div>
+
+                        <div class="issue-details">
+                            <h4>Large Pothole</h4>
+                            <p>📍 FC Road, Pune</p>
+                        </div>
+
+                        <div class="issue-priority">
+                            <strong>87</strong>
+                            <span class="high">HIGH</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="issue-item">
+
+                        <div class="issue-type-icon red-bg">🚰</div>
+
+                        <div class="issue-details">
+                            <h4>Water Leakage</h4>
+                            <p>📍 Kothrud, Pune</p>
+                        </div>
+
+                        <div class="issue-priority">
+                            <strong>82</strong>
+                            <span class="high">HIGH</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="issue-item">
+
+                        <div class="issue-type-icon orange-bg">🗑️</div>
+
+                        <div class="issue-details">
+                            <h4>Garbage Overflow</h4>
+                            <p>📍 Wakad, Pune</p>
+                        </div>
+
+                        <div class="issue-priority">
+                            <strong>64</strong>
+                            <span class="medium">MEDIUM</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="issue-item">
+
+                        <div class="issue-type-icon orange-bg">💡</div>
+
+                        <div class="issue-details">
+                            <h4>Broken Streetlight</h4>
+                            <p>📍 Baner, Pune</p>
+                        </div>
+
+                        <div class="issue-priority">
+                            <strong>58</strong>
+                            <span class="medium">MEDIUM</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHART -->
+
+            <div class="dashboard-card chart-card">
+
+                <div class="card-heading">
+
+                    <div>
+                        <h3>Issue Trends</h3>
+                        <p>Reports vs resolutions</p>
+                    </div>
+
+                </div>
+
+                <canvas id="issueChart"></canvas>
+
+            </div>
+
+        </div>
+
+
+        <!-- MAP -->
+
+        <div class="dashboard-card map-card">
+
+            <div class="card-heading">
+
+                <div>
+                    <h3>📍 Civic Issue Map</h3>
+                    <p>Issue distribution across the city</p>
+                </div>
+
+                <div class="map-legend">
+                    <span><i class="red-dot"></i> Critical</span>
+                    <span><i class="orange-dot"></i> Medium</span>
+                    <span><i class="green-dot"></i> Resolved</span>
+                </div>
+
+            </div>
+
+
+            <div class="large-map">
+
+                <div class="map-grid-lines"></div>
+
+                <div class="map-road large-road road-a"></div>
+                <div class="map-road large-road road-b"></div>
+                <div class="map-road large-road road-c"></div>
+                <div class="map-road large-road road-d"></div>
+
+                <div class="large-marker red-marker m1">
+                    <span>87</span>
+                </div>
+
+                <div class="large-marker red-marker m2">
+                    <span>82</span>
+                </div>
+
+                <div class="large-marker orange-marker m3">
+                    <span>64</span>
+                </div>
+
+                <div class="large-marker orange-marker m4">
+                    <span>58</span>
+                </div>
+
+                <div class="large-marker green-marker m5">
+                    <span>✓</span>
+                </div>
+
+                <div class="map-label label1">FC Road</div>
+                <div class="map-label label2">Kothrud</div>
+                <div class="map-label label3">Wakad</div>
+                <div class="map-label label4">Baner</div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= HOW IT WORKS ================= -->
+
+    <section class="how-section" id="how-it-works">
+
+        <div class="section-heading">
+
+            <span class="section-label">HOW IT WORKS</span>
+
+            <h2>
+                From report to
+                <span>resolution.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="step-number">01</div>
+
+                <div class="step-icon">📸</div>
+
+                <h3>Report</h3>
+
+                <p>
+                    Citizen submits an issue with location,
+                    category and description.
+                </p>
+
+            </div>
+
+
+            <div class="step-line"></div>
+
+
+            <div class="step">
+
+                <div class="step-number">02</div>
+
+                <div class="step-icon">🤖</div>
+
+                <h3>Prioritize</h3>
+
+                <p>
+                    Our smart scoring system evaluates
+                    severity and public impact.
+                </p>
+
+            </div>
+
+
+            <div class="step-line"></div>
+
+
+            <div class="step">
+
+                <div class="step-number">03</div>
+
+                <div class="step-icon">👷</div>
+
+                <h3>Resolve</h3>
+
+                <p>
+                    Authorities assign resources and
+                    update the issue status.
+                </p>
+
+            </div>
+
+
+            <div class="step-line"></div>
+
+
+            <div class="step">
+
+                <div class="step-number">04</div>
+
+                <div class="step-icon">✅</div>
+
+                <h3>Improve</h3>
+
+                <p>
+                    Citizens see progress and cities
+                    become safer and cleaner.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            <div class="logo-icon">⚡</div>
+            <strong>CivicPulse</strong>
+        </div>
+
+        <p>
+            Technology for smarter communities and a better tomorrow.
+        </p>
+
+        <div class="footer-bottom">
+            <span>© 2026 CivicPulse</span>
+            <span>Built for HACKDAY 1.0 🚀</span>
+        </div>
+
+    </footer>
+
+
+    <!-- ================= REPORT MODAL ================= -->
+
+    <div class="modal-overlay" id="reportModal">
+
+        <div class="modal">
+
+            <button class="close-modal" onclick="closeReportModal()">×</button>
+
+            <div class="modal-header">
+
+                <span class="section-label">CITIZEN REPORT</span>
+
+                <h2>Report an Issue</h2>
+
+                <p>
+                    Help make your community safer and better.
+                </p>
+
+            </div>
+
+
+            <form id="reportForm">
+
+                <div class="form-group">
+
+                    <label>Issue Category</label>
+
+                    <select id="issueCategory" required>
+
+                        <option value="">Select an issue</option>
+                        <option value="pothole">🚧 Pothole / Road Damage</option>
+                        <option value="garbage">🗑️ Garbage Overflow</option>
+                        <option value="streetlight">💡 Broken Streetlight</option>
+                        <option value="water">🚰 Water Leakage</option>
+                        <option value="manhole">⚠️ Open Manhole</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Location</label>
+
+                    <input
+                        type="text"
+                        id="issueLocation"
+                        placeholder="e.g. FC Road, Pune"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Severity</label>
+
+                    <div class="severity-options">
+
+                        <label class="severity-option">
+                            <input type="radio" name="severity" value="low" required>
+                            <span>Low</span>
+                        </label>
+
+                        <label class="severity-option">
+                            <input type="radio" name="severity" value="medium">
+                            <span>Medium</span>
+                        </label>
+
+                        <label class="severity-option">
+                            <input type="radio" name="severity" value="high">
+                            <span>High</span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Description</label>
+
+                    <textarea
+                        id="issueDescription"
+                        rows="4"
+                        placeholder="Describe the problem..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Upload Photo <span>(Optional)</span></label>
+
+                    <input
+                        type="file"
+                        id="issuePhoto"
+                        accept="image/*"
+                    >
+
+                </div>
+
+
+                <div class="smart-score-box" id="smartScoreBox">
+
+                    <div>
+                        <small>SMART PRIORITY</small>
+                        <strong id="calculatedScore">--</strong>
+                    </div>
+
+                    <span id="priorityLabel">Complete the form</span>
+
+                </div>
+
+
+                <button type="submit" class="submit-btn">
+                    Submit Report →
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= SUCCESS MODAL ================= -->
+
+    <div class="modal-overlay" id="successModal">
+
+        <div class="success-modal">
+
+            <div class="success-icon">✓</div>
+
+            <h2>Report Submitted!</h2>
+
+            <p>
+                Your civic issue has been successfully reported.
+                Our smart system has prioritized it for review.
+            </p>
+
+            <div class="success-score">
+
+                <small>PRIORITY SCORE</small>
+                <strong id="successScore">87</strong>
+
+            </div>
+
+            <button class="primary-btn" onclick="closeSuccessModal()">
+                Done
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
